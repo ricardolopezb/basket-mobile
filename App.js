@@ -10,7 +10,7 @@ export default function App() {
       <Text>god?</Text>
       <Button title='Si' onPress={() => setPressedYes(true)}></Button>
       <Button title='No' onPress={() => setPressedYes(false)}></Button>
-      {pressedYes && <Text>anashei</Text>}
+      {pressedYes && <Text>Ricky Pete</Text>}
       <StatusBar style="auto" />
     </View>
   );
