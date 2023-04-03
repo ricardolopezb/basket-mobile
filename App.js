@@ -1,10 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const [pressedYes, setPressedYes] = useState(false);
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>god?</Text>
+      <Button title='Si' onPress={() => setPressedYes(true)}></Button>
+      <Button title='No' onPress={() => setPressedYes(false)}></Button>
+      {pressedYes && <Text>anashei</Text>}
       <StatusBar style="auto" />
     </View>
   );
