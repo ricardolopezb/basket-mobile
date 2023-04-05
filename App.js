@@ -3,14 +3,10 @@ import { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
-  const [pressedYes, setPressedYes] = useState(false);
 
   return (
     <View style={styles.container}>
-      <Text>god?</Text>
-      <Button title='Si' onPress={() => setPressedYes(true)}></Button>
-      <Button title='No' onPress={() => setPressedYes(false)}></Button>
-      {pressedYes && <Text>Ricky Pete</Text>}
+      <Text>TP Basket ASECA</Text>
       <StatusBar style="auto" />
     </View>
   );
