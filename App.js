@@ -1,22 +1,45 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import {Button, StyleSheet, Text, useWindowDimensions, View} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home } from "./src/screens/Home"
+import { TabView } from 'react-native-tab-view';
+
+const renderScene = ({ route }) => {
+    switch (route.key) {
+        case 'matches':
+            return <Home />;
+        case 'players':
+            return <Home />;
+    }
+};
 
 export default function App() {
+    const Stack = createNativeStackNavigator();
+    const layout = useWindowDimensions();
 
+    const [index, setIndex] = React.useState(0);
+    const [routes] = React.useState([
+        { key: 'matches', title: 'Matches' },
+        { key: 'players', title: 'Players' },
+    ]);
   return (
-    <View style={styles.container}>
-      <Text>TP Basket ASECA</Text>
-      <StatusBar style="auto" />
-    </View>
+
+          <TabView style={styles.container}
+              navigationState={{ index, routes }}
+              renderScene={renderScene}
+              onIndexChange={setIndex}
+              initialLayout={{ width: layout.width }}
+          />
+
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    container:{
+        marginTop:40,
+    }
+})
+
+
