@@ -1,22 +1,30 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {useState} from "react";
+import {Match} from "../components/match/Match";
 
 export const Home = () => {
+    const [matches,setMatches] = useState([
+        {name:"caca"},{name:"kjasldjalks"},{name:"caca"},{name:"kjasldjalks"},{name:"caca"},{name:"kjasldjalks"},{name:"caca"},{name:"kjasldjalks"},{name:"caca"},{name:"kjasldjalks"}
+    ])
+
     return (
-        <></>
-        // <NavigationContainer>
-        //   <Stack.Navigator>
-        //     <Stack.Screen name="Homeeeee" component={Home} />
-        //   </Stack.Navigator>
-        // </NavigationContainer>
+        <ScrollView style={styles.container}>
+            {
+                matches.map((match) => {
+                    return (
+                        <Match name={match.name}></Match>
+                    )
+                })
+            }
+        </ScrollView>
+
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        marginTop:20,
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        overflow:"scroll"
     },
 });
