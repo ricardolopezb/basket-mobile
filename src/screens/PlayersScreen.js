@@ -1,6 +1,5 @@
-import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
+import { ScrollView, StyleSheet} from 'react-native';
 import {useState} from "react";
-import {Match} from "../components/match/Match";
 import {Player} from "../components/player/Player";
 import {toKebabCase} from "../components/common/utils";
 

@@ -1,8 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import { StyleSheet,useWindowDimensions, View } from 'react-native';
 import { MatchesScreen } from "./src/screens/MatchesScreen"
 import { TabView, TabBar } from 'react-native-tab-view';
 import {PlayersScreen} from "./src/screens/PlayersScreen"; // Importar el componente TabBar
@@ -25,27 +22,35 @@ export default function App() {
         { key: 'players', title: 'Players' },
     ]);
     return (
-        <TabView
-            style={styles.container}
-            navigationState={{ index, routes }}
-            renderScene={renderScene}
-            onIndexChange={setIndex}
-            initialLayout={{ width: layout.width }}
-            renderTabBar={(props) => (
-                <TabBar
-                    {...props}
-                    indicatorStyle={{ backgroundColor: '#FFD700' }}
-                    style={{ backgroundColor: '#0E294B' }}
-                    labelStyle={{ color: 'white' ,fontSize:18,fontWeight:"bold"}}
-                />
-            )}
-        />
+        <>
+            <View style={styles.header}></View>
+            <TabView
+                style={styles.container}
+                navigationState={{ index, routes }}
+                renderScene={renderScene}
+                onIndexChange={setIndex}
+                initialLayout={{ width: layout.width }}
+                renderTabBar={(props) => (
+                    <TabBar
+                        {...props}
+                        indicatorStyle={{ backgroundColor: '#FFD700' }}
+                        style={{ backgroundColor: '#0E294B' }}
+                        labelStyle={{ color: 'white' ,fontSize:18,fontWeight:"bold"}}
+                    />
+                )}
+            />
+        </>
+
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 40,
+        height:"95%",
+    },
+    header:{
+        height:"5%",
+        backgroundColor:'#0E294B'
     }
 })
 
