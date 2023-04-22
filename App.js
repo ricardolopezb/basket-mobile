@@ -3,15 +3,16 @@ import React, { useState } from 'react';
 import { Button, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home } from "./src/screens/Home"
-import { TabView, TabBar } from 'react-native-tab-view'; // Importar el componente TabBar
+import { MatchesScreen } from "./src/screens/MatchesScreen"
+import { TabView, TabBar } from 'react-native-tab-view';
+import {PlayersScreen} from "./src/screens/PlayersScreen"; // Importar el componente TabBar
 
 const renderScene = ({ route }) => {
     switch (route.key) {
         case 'matches':
-            return <Home />;
+            return <MatchesScreen />;
         case 'players':
-            return <Home />;
+            return <PlayersScreen />;
     }
 };
 
@@ -33,8 +34,8 @@ export default function App() {
             renderTabBar={(props) => (
                 <TabBar
                     {...props}
-                    indicatorStyle={{ backgroundColor: 'red' }}
-                    style={{ backgroundColor: 'orange' }}
+                    indicatorStyle={{ backgroundColor: '#FFD700' }}
+                    style={{ backgroundColor: '#0E294B' }}
                     labelStyle={{ color: 'white' ,fontSize:18,fontWeight:"bold"}}
                 />
             )}
