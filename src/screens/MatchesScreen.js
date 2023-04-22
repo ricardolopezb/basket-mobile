@@ -2,6 +2,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import {useState} from "react";
 import {Match} from "../components/match/Match";
 import {toKebabCase} from "../components/common/utils";
+import ScrollAndRefetch from "../components/common/ScrollAndRefetch";
 
 export const MatchesScreen = () => {
     const [matches,setMatches] = useState([
@@ -20,28 +21,20 @@ export const MatchesScreen = () => {
         }
     ])
 
-    return (
-        <ScrollView style={styles.container}>
-            {
-                matches.map((match,index) => {
-                    return (
-                        <Match team1Name={toKebabCase(match.team1Name)}
-                               team2Name={toKebabCase(match.team2name)}
-                               team1Points={match.team1points}
-                               team2Points={match.team2points}
-                               parity={index%2 === 0}></Match>
-                    )
-                })
-            }
-        </ScrollView>
+    const matchesList = matches.map((match,index) => {
+        return (
+            <Match team1Name={toKebabCase(match.team1Name)}
+                   team2Name={toKebabCase(match.team2name)}
+                   team1Points={match.team1points}
+                   team2Points={match.team2points}
+                   parity={index % 2 === 0}></Match>
+        )
+    })
 
-    );
+
+    return (
+        <ScrollAndRefetch children={matchesList}/>
+
+    )
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        overflow:"scroll"
-    },
-});
