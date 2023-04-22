@@ -5,14 +5,19 @@ import {toKebabCase} from "../components/common/utils";
 
 export const MatchesScreen = () => {
     const [matches,setMatches] = useState([
-        {team1Name:"miami heat",
-         team1points:80,
-         team2name:"san antonio spurs",
-            team2points:82,},
-        {team1Name:"los-angeles lakers",
+        {
+            team1Name:"miami heat",
+            team1points:80,
+            team2name:"san antonio spurs",
+            team2points:82,
+        },
+
+        {
+            team1Name:"los angeles lakers",
             team1points:90,
-            team2name:"boston celtics",
-            team2points:60,}
+            team2name:"detroit pistons",
+            team2points:60,
+        }
     ])
 
     return (
