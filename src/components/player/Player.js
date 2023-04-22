@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card} from "../common/card";
+import {Card} from "../common/Card";
 import styleSheet from "react-native-web/dist/exports/StyleSheet";
 import {Image, Text, TouchableOpacity, View} from "react-native";
 

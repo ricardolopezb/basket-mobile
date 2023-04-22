@@ -23,7 +23,9 @@ export const PlayersScreen = () => {
     })
 
     return (
-        <ScrollAndRefetch children={playersList}/>
+        <ScrollAndRefetch>
+            {playersList}
+        </ScrollAndRefetch>
     );
 }
 

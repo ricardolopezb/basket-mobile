@@ -1,4 +1,3 @@
-import { ScrollView, StyleSheet } from 'react-native';
 import {useState} from "react";
 import {Match} from "../components/match/Match";
 import {toKebabCase} from "../components/common/utils";
@@ -33,7 +32,9 @@ export const MatchesScreen = () => {
 
 
     return (
-        <ScrollAndRefetch children={matchesList}/>
+        <ScrollAndRefetch >
+            {matchesList}
+        </ScrollAndRefetch>
 
     )
 };

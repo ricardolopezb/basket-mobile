@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, StyleSheet, RefreshControl, ActivityIndicator} from "react-native";
+import {ScrollView, StyleSheet, RefreshControl, ActivityIndicator, View} from "react-native";
 
 const ScrollAndRefetch = (props) => {
     const [refreshing, setRefreshing] = useState(false);
@@ -16,23 +16,29 @@ const ScrollAndRefetch = (props) => {
     }
 
     return (
-        <ScrollView style={styles.container}>
-            <RefreshControl
-                refreshing={refreshing}
-                onRefresh={fetchData} // Asociamos la función fetchData al evento onRefresh
-            />
-            {refreshing && <ActivityIndicator size="large" color="grey" style={styles.activityIndicator}/>}
-
-            {props.children}
-        </ScrollView>
+        <View style={styles.container}>
+            {refreshing && (
+                <View style={styles.activityIndicator}>
+                    <ActivityIndicator size="large" color="#0E294B" />
+                </View>
+            )}
+            <ScrollView style={styles.scroll}>
+                <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={fetchData} // Asociamos la función fetchData al evento onRefresh
+                />
+                {props.children}
+            </ScrollView>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
+    scroll: {
+        flexGrow: 1,
+    },
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        overflow:"scroll"
     },
     activityIndicator: {
         position: 'absolute',
@@ -40,8 +46,10 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
+        marginTop:20,
+        alignItems: 'center',
+        justifyContent: 'first',
         zIndex: 1,
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
     },
 });
 

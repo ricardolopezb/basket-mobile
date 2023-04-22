@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, Text, View} from "react-native";
 import styleSheet from "react-native-web/dist/exports/StyleSheet";
-import {Card} from "../common/card";
+import {Card} from "../common/Card";
 
 export const Match = (props) => {
     return (
