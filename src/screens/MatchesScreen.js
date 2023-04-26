@@ -20,6 +20,20 @@ export const MatchesScreen = () => {
         }
     ])
 
+    const fetch = () =>{
+        axios.get('http://172.22.47.74:8080/api/matches/all')
+            .then(response => {
+                setPlayers(...matches,...response.data.sort(() => Math.random() - 0.5))
+            })
+            .catch(error => {
+                console.error('Error al hacer la petición:', error);
+            });
+    }
+
+    useEffect(() => {
+        fetch()
+    }, []);
+
     const matchesList = matches.map((match,index) => {
         return (
             <Match
@@ -34,7 +48,7 @@ export const MatchesScreen = () => {
 
 
     return (
-        <ScrollAndRefetch >
+        <ScrollAndRefetch fetch={fetch}>
             {matchesList}
         </ScrollAndRefetch>
 
