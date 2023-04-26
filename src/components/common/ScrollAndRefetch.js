@@ -4,15 +4,10 @@ import {ScrollView, StyleSheet, RefreshControl, ActivityIndicator, View} from "r
 const ScrollAndRefetch = (props) => {
     const [refreshing, setRefreshing] = useState(false);
 
-    useEffect(() => {
-        // Aquí puedes hacer la llamada inicial a tu API o fuente de datos para obtener la información
-        fetchData();
-    }, []);
-
-    const fetchData =()=>{
+    const fetchData = () => {
         setRefreshing(true)
-        console.log("caca")
-        setTimeout(()=>setRefreshing(false),2000)
+         props.fetch()
+        setTimeout(()=>setRefreshing(false),700)
     }
 
     return (
@@ -25,7 +20,7 @@ const ScrollAndRefetch = (props) => {
             <ScrollView style={styles.scroll}>
                 <RefreshControl
                     refreshing={refreshing}
-                    onRefresh={fetchData} // Asociamos la función fetchData al evento onRefresh
+                    onRefresh={fetchData}
                 />
                 {props.children}
             </ScrollView>

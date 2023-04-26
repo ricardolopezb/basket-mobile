@@ -6,7 +6,7 @@ import ScrollAndRefetch from "../components/common/ScrollAndRefetch";
 export const MatchesScreen = () => {
     const [matches,setMatches] = useState([
         {
-            team1Name:"miami heat",
+            team1Name:"Atlanta Hawks",
             team1points:80,
             team2name:"san antonio spurs",
             team2points:82,
@@ -22,11 +22,13 @@ export const MatchesScreen = () => {
 
     const matchesList = matches.map((match,index) => {
         return (
-            <Match team1Name={toKebabCase(match.team1Name)}
-                   team2Name={toKebabCase(match.team2name)}
-                   team1Points={match.team1points}
-                   team2Points={match.team2points}
-                   parity={index % 2 === 0}></Match>
+            <Match
+                team1Name={toKebabCase(match.team1Name)}
+                team2Name={toKebabCase(match.team2name)}
+                team1Points={match.team1points}
+                team2Points={match.team2points}
+                parity={index % 2 === 0}>
+            </Match>
         )
     })
 
