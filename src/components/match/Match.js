@@ -12,6 +12,7 @@ export const Match = (props) => {
                        resizeMode="contain"
                        style={{height:100,width:80}}
                        source={{uri:"https://cdn.freebiesupply.com/images/large/2x/"+props.team1Name+"-logo-transparent.png"}}
+                       testID={"logo-1"}
                    />
                    <Text style={styles.points}>{props.team1Points}</Text>
                </View>
@@ -26,6 +27,7 @@ export const Match = (props) => {
                        resizeMode="contain"
                        style={{height:100,width:80}}
                        source={{uri:"https://cdn.freebiesupply.com/images/large/2x/"+props.team2Name+"-logo-transparent.png"}}
+                       testID={"logo-2"}
                    />
                </View>
            </View>
