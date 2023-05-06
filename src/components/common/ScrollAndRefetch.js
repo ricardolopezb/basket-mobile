@@ -5,22 +5,24 @@ const ScrollAndRefetch = (props) => {
     const [refreshing, setRefreshing] = useState(false);
 
     const fetchData = () => {
+        console.log("entered fetch")
         setRefreshing(true)
-         props.fetch()
-        setTimeout(()=>setRefreshing(false),700)
+        props.fetch()
+        setTimeout(() => setRefreshing(false),700)
     }
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container} testID={"activityIndicator"}>
             {refreshing && (
-                <View style={styles.activityIndicator}>
-                    <ActivityIndicator size="large" color="#0E294B" />
+                <View style={styles.activityIndicator} >
+                    <ActivityIndicator size="large" color="#0E294B"  />
                 </View>
             )}
-            <ScrollView style={styles.scroll}>
+            <ScrollView style={styles.scroll} testID={"refreshControl"}>
                 <RefreshControl
                     refreshing={refreshing}
                     onRefresh={fetchData}
+
                 />
                 {props.children}
             </ScrollView>

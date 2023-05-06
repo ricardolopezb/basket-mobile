@@ -1,5 +1,5 @@
 import {Match} from "../../components/match/Match";
-import {render} from "@testing-library/react-native";
+import {fireEvent, render} from "@testing-library/react-native";
 
 describe('Match component', () => {
     it('should render team logos and points', () => {
