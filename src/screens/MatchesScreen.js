@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Match} from "../components/match/Match";
 import {toKebabCase} from "../components/common/utils";
 import ScrollAndRefetch from "../components/common/ScrollAndRefetch";
@@ -21,7 +21,7 @@ export const MatchesScreen = () => {
     ])
 
     const fetch = () =>{
-        axios.get('http://172.22.47.74:8080/api/matches/all')
+        axios.get('http://192.168.1.90:8080/api/matches/all')
             .then(response => {
                 setPlayers(...matches,...response.data.sort(() => Math.random() - 0.5))
             })

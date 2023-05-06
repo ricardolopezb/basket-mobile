@@ -8,7 +8,7 @@ export const PlayersScreen = () => {
     const [players,setPlayers] = useState([])
 
     const fetch = () =>{
-        axios.get('http://172.22.47.74:8080/api/stats/all')
+        axios.get('http://192.168.1.90:8080/api/stats/all')
             .then(response => {
                 setPlayers(response.data.sort(() => Math.random() - 0.5))
             })
