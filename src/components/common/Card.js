@@ -28,3 +28,6 @@ const styles = styleSheet.create({
         padding:20
     }
 })
+
+
+
