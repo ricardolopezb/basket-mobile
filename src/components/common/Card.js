@@ -4,8 +4,8 @@ import {View} from "react-native";
 
 export const Card = (props) => {
     return (
-        <View 
-            style={[styles.container,{backgroundColor:props.parity ? "#CCCCCC" : "#D3D0CB"}]}>
+        <View
+            style={[styles.container,{backgroundColor:props.parity ? "#CCCCCC" : "#D3D0CB"}]} testID={"card"}>
             {props.children}
         </View>
     );

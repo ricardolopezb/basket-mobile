@@ -16,6 +16,7 @@ export const Player = (props) => {
                         resizeMode="contain"
                         style={{height:120,width:100}}
                         source={{uri:url}}
+                        testID={"logo"}
                     />
                 </View>
                 <View style={styles.nameContainer}>
