@@ -8,7 +8,7 @@ export const PlayersScreen = () => {
     const [players,setPlayers] = useState([])
 
     const fetch = () =>{
-        axios.get('http://192.168.1.90:8080/stats/all')
+        axios.get('http://172.22.45.162:8080/stats/all')
             .then(response => {
                 setPlayers(response.data.sort(() => Math.random() - 0.5))
             })
@@ -30,6 +30,7 @@ export const PlayersScreen = () => {
                 faults={player.faultsCommited}
                 matches={player.matchesPlayed}
                 score={player.totalScoring}
+                accessibilityLabel={"player-"+index}
             />
         )
     })

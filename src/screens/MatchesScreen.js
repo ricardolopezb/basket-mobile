@@ -37,7 +37,7 @@ export const MatchesScreen = () => {
     ])
 
     const fetch = () =>{
-        axios.get('http://192.168.1.90:8080/match/all')
+        axios.get('http://172.22.45.162:8080/match/all')
             .then(response => {
                 console.log("FOUND MATCHES", response.data)
                 setMatches(response.data.sort(() => Math.random() - 0.5))
@@ -59,6 +59,7 @@ export const MatchesScreen = () => {
                 team1Points={match.localTeamScore}
                 team2Points={match.visitorTeamScore}
                 parity={index % 2 === 0}>
+                accessibilityLabel={"match-"+index}
             </Match>
         )
     })
